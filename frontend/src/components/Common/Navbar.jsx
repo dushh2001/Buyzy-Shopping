@@ -9,7 +9,7 @@ const Navbar = () => {
         {/* Left-Logo */}
         <div>
           <Link to="/" className="text-2xl font-bold text-violet-950">
-            VogueVista
+            Buyzy
           </Link>
         </div>
         {/* Center-Nav Links */}
