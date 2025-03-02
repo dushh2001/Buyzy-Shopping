@@ -6,7 +6,7 @@ const App = () => {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element = {<UserLayout/>}>{/*UserLayout*/}</Route>
+          <Route path="/" element = {<UserLayout/>}></Route>
           <Route>{/*AdminLayout*/}</Route>
 
         </Routes>
