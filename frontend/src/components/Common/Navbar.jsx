@@ -2,6 +2,7 @@ import { HiOutlineShoppingBag, HiOutlineUser } from "react-icons/hi";
 import { HiBars3BottomRight } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import CartDrawer from "../Layout/CartDrawer";
 
 const Navbar = () => {
   return (
@@ -47,6 +48,7 @@ const Navbar = () => {
             </button> 
         </div>
       </nav>
+      <CartDrawer />
     </>
   );
 };
