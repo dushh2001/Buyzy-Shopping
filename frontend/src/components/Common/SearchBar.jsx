@@ -22,7 +22,10 @@ const SearchBar = () => {
       }`}
     >
       {isOpen ? (
-        <form onSubmit={handleSearch} className="relative flex items-center justify-center w-full">
+        <form
+          onSubmit={handleSearch}
+          className="relative flex items-center justify-center w-full"
+        >
           <div className="relative w-1/2">
             <input
               type="text"
@@ -31,14 +34,19 @@ const SearchBar = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full px-4 py-2 pl-2 pr-12 bg-gray-200 rounded-lg focus-outline-none placeholder:text-gray-700 "
             />
-            { /* Search Icon */}
+
+            {/* Search Icon */}
             <button type="submit">
-                <HiMagnifyingGlass className="absolute w-6 h-6 text-gray-700 transform -translate-y-1/2 top-1/2 right-4" />
+              <HiMagnifyingGlass className="absolute w-6 h-6 text-gray-700 transform -translate-y-1/2 top-1/2 right-4" />
             </button>
           </div>
+
           {/* Close Icon */}
           <button type="button">
-            <HiMiniXMark className="w-6 h-6 text-gray-700" onClick={handleSearchToggle} />
+            <HiMiniXMark
+              className="w-6 h-6 text-gray-700"
+              onClick={handleSearchToggle}
+            />
           </button>
         </form>
       ) : (
