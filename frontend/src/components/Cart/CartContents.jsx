@@ -44,9 +44,9 @@ const CartContents = () => {
                 {product.size} | {product.color}
               </p>
               <div className="flex items-center mt-2">
-                <button className="px-2 py-0 text-xl font-medium border rounded">-</button>
+                <button className="px-2 py-0 text-xl font-medium border-2 rounded">-</button>
                 <span className="mx-4">{product.quantity}</span>
-                <button className="px-2 py-0 text-xl font-medium border rounded">+</button>
+                <button className="px-2 py-0 text-xl font-medium border-2 rounded">+</button>
               </div>
             </div>
           </div>
