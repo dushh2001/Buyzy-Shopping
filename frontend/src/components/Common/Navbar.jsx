@@ -21,29 +21,30 @@ const Navbar = () => {
             Buyzy
           </Link>
         </div>
+
         {/* Center-Nav Links */}
         <div className="hidden space-x-6 md:flex">
           <Link
             to="/"
-            className="text-sm font-medium text-gray-700 uppercase hover:text-black"
+            className="text-sm font-bold text-gray-600 uppercase hover:text-black"
           >
             Men
           </Link>
           <Link
             to="/"
-            className="text-sm font-medium text-gray-700 uppercase hover:text-black"
+            className="text-sm font-bold text-gray-600 uppercase hover:text-black"
           >
             Women
           </Link>
           <Link
             to="/"
-            className="text-sm font-medium text-gray-700 uppercase hover:text-black"
+            className="text-sm font-bold text-gray-600 uppercase hover:text-black"
           >
             Top Wear
           </Link>
           <Link
             to="/"
-            className="text-sm font-medium text-gray-700 uppercase hover:text-black"
+            className="text-sm font-bold text-gray-600 uppercase hover:text-black"
           >
             Bottom Wear
           </Link>
@@ -63,15 +64,19 @@ const Navbar = () => {
               6
             </span>
           </button>
+
           {/* Search-Icon */}
           <div className="overflow-hidden">
             <SearchBar />
           </div>
+
+          {/* Mobile-Menu */}
           <button className="md:hidden">
             <HiBars3BottomRight className="w-6 h-6 text-gray-700" />
           </button>
         </div>
       </nav>
+
       <CartDrawer drawerOpen={drawerOpen} toggleCartDrawer={toggleCartDrawer} />
     </>
   );
