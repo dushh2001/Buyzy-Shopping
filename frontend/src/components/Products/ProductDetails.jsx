@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import ProductGrid from "./ProductGrid";
 
 const selectProducts = {
   name: "Stylish Jacket",
@@ -22,6 +23,34 @@ const selectProducts = {
     },
   ],
 };
+
+const similarProducts = [
+  {
+    _id: 1,
+    name: "Stylish Jacket",
+    price: 100,
+    images: [{url:" https://picsum.photos/500/500?random=11"}]
+  },
+  {
+    _id: 2,
+    name: "Stylish Jacket",
+    price: 100,
+    images: [{url:" https://picsum.photos/500/500?random=12"}]
+  },
+  {
+    _id: 3,
+    name: "Stylish Jacket",
+    price: 100,
+    images: [{url:" https://picsum.photos/500/500?random=13"}]
+  },
+  {
+    _id: 4,
+    name: "Stylish Jacket",
+    price: 100,
+    images: [{url:" https://picsum.photos/500/500?random=14"}]
+  },
+  
+]
 
 const ProductDetails = () => {
   const [mainImage, setMainImage] = useState("");
@@ -58,7 +87,7 @@ const ProductDetails = () => {
 
   return (
     <div className="p-10">
-      <div className="max-w-6xl p-8 mx-auto bg-white rounded-lg">
+      <div className="p-10 mx-auto bg-white rounded-lg max-w-[1340px] ">
         <div className="flex flex-col md:flex-row">
           {/* Left Thumbnails */}
           <div className="flex-col hidden mr-6 space-y-4 md:flex">
@@ -83,7 +112,7 @@ const ProductDetails = () => {
               <img
                 src={mainImage}
                 alt="Main Product"
-                className="object-cover w-full h-auto rounded-lg"
+                className="object-cover h-auto rounded-lg w-[600px]"
               />
             </div>
           </div>
@@ -107,7 +136,7 @@ const ProductDetails = () => {
 
           {/* Right Side  */}
           <div className="md:w-1/2 md:ml-10">
-            <h1 className="mb-2 text-2xl font-semibold md:text-3xl">
+            <h1 className="mb-2 text-2xl font-semibold md:text-2xl">
               {selectProducts.name}
             </h1>
             <p className="mb-1 text-lg text-gray-600 line-through">
@@ -186,7 +215,7 @@ const ProductDetails = () => {
             </button>
 
             <div className="mt-1 text-gray-700">
-              <h3 className="mb-6 text-xl font-bold">Characteristics:</h3>
+              <h3 className="mb-4 text-xl font-bold">Characteristics:</h3>
               <table className="w-full text-sm text-left text-gray-600">
                 <tbody>
                   <tr>
@@ -201,6 +230,12 @@ const ProductDetails = () => {
               </table>
             </div>
           </div>
+        </div>
+        <div className="mt-20">
+          <h2 className="mb-4 text-2xl font-bold text-center">
+            You May Also Like
+          </h2>
+          <ProductGrid products={similarProducts} />
         </div>
       </div>
     </div>

@@ -139,19 +139,14 @@ const NewArrivals = () => {
     }
   };
 
-  console.log({
-    offsetLeft: scrollRef.current?.offsetLeft,
-  });
-
   useEffect(() => {
     const container = scrollRef.current;
     if (container) {
       container.addEventListener("scroll", updateScrollButtons);
       updateScrollButtons();
-      
+
       return () => container.removeEventListener("scroll", updateScrollButtons);
     }
-    
   }, []);
 
   return (
