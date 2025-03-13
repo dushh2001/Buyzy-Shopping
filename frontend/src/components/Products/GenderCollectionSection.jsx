@@ -30,7 +30,7 @@ const GenderCollectionSection = () => {
             alt="Women's Collection"
             className="w-full h-[700px] object-cover"
           />
-          <div className="absolute p-4 bg-white bottom-8 left-8 bg-opacity-90">
+          <div className="absolute p-4 bg-white bottom-8 right-8 bg-opacity-90">
             <h2 className="mb-3 text-xl font-bold text-gray-900 md:text-2xl">
               Men's Collection
             </h2>
