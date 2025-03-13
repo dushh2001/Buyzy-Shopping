@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 const selectProducts = {
   name: "Stylish Jacket",
@@ -37,8 +38,23 @@ const ProductDetails = () => {
 
   const handleQuantityChange = (action) => {
     if (action === "plus") setQuantity((prev) => prev + 1);
-    if (action === "minus" && quantity > 1) setQuantity((prev) => prev - 1)
-  }
+    if (action === "minus" && quantity > 1) setQuantity((prev) => prev - 1);
+  };
+
+  const handleAddToCart = () => {
+    if (!selectedSize || !selectedColor) {
+      toast.error("Please select size and color before adding to cart", {
+        duration: 3000,
+      });
+      return;
+    }
+
+    setIsButtonDisabled(true);
+    setTimeout(() => {
+      toast.success("Product added to cart", { duration: 3000 });
+      setIsButtonDisabled(false);
+    }, 1500);
+  };
 
   return (
     <div className="p-10">
@@ -126,13 +142,13 @@ const ProductDetails = () => {
               <p className="text-gray-700">Size:</p>
               <div className="flex gap-2 mt-2">
                 {selectProducts.sizes.map((size) => (
-                  <button key={size}
-                   onClick={() => setSelectedSize(size)}
-                   className={`px-4 py-2 border rounded ${
-                    selectedSize === size
-                      ? "bg-black text-white"
-                      : ""
-                  }`}>
+                  <button
+                    key={size}
+                    onClick={() => setSelectedSize(size)}
+                    className={`px-4 py-2 border rounded ${
+                      selectedSize === size ? "bg-black text-white" : ""
+                    }`}
+                  >
                     {size}
                   </button>
                 ))}
@@ -141,17 +157,32 @@ const ProductDetails = () => {
             <div className="mb-6">
               <p className="text-gray-700">Quantity:</p>
               <div className="flex items-center mt-2 space-x-4">
-                <button onClick={() => handleQuantityChange("minus")} className="px-2 py-1 text-lg bg-gray-200 rounded ">
+                <button
+                  onClick={() => handleQuantityChange("minus")}
+                  className="px-2 py-1 text-lg bg-gray-200 rounded "
+                >
                   -
                 </button>
                 <span className="text-lg">{quantity}</span>
-                <button onClick={() => handleQuantityChange("plus")} className="px-2 py-1 text-lg bg-gray-200 rounded">
+                <button
+                  onClick={() => handleQuantityChange("plus")}
+                  className="px-2 py-1 text-lg bg-gray-200 rounded"
+                >
                   +
                 </button>
               </div>
             </div>
-            <button className="w-full px-6 py-2 mb-4 text-white bg-gray-800 rounded">
-              ADD TO CART
+
+            <button
+              onClick={handleAddToCart}
+              disabled={isButtonDisabled}
+              className={`w-full px-6 py-2 mb-4 text-white bg-gray-800 rounded ${
+                isButtonDisabled
+                  ? "opacity-50 cursor-not-allowed"
+                  : "hover:bg-gray-700"
+              }`}
+            >
+              {isButtonDisabled ? "Adding to cart..." : "Add to Cart"}
             </button>
 
             <div className="mt-1 text-gray-700">
