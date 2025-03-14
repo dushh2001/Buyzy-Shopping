@@ -58,7 +58,7 @@ const Navbar = () => {
 
         {/* Right-Icons */}
         <div className="flex items-center space-x-4">
-          <Link to="/login" className="hover:text-black-700">
+          <Link to="/profile" className="hover:text-black-700">
             <HiOutlineUser className="w-6 h-6" />
           </Link>
           <button

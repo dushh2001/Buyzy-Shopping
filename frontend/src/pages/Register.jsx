@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import login from "../assets/login.webp";
+import register from "../assets/register.webp";
 
-const Login = () => {
+const Register = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("User Logged:", {email, password});
+    console.log("User Registered:", {name, email, password});
   }
   
   return (
@@ -20,8 +21,18 @@ const Login = () => {
           </div>
           <h2 className="mb-6 text-2xl font-bold text-center">Hey there !!!</h2>
           <p className="mb-6 text-center">
-            Enter your username and password to Login
+            Enter your details to Register with us
           </p>
+          <div className="mb-4">
+            <label className="block mb-2 text-sm font-semibold">Name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Enter your Name"
+              className="w-full p-2 border rounded"
+            />
+          </div>
           <div className="mb-4">
             <label className="block mb-2 text-sm font-semibold">Email</label>
             <input
@@ -49,9 +60,9 @@ const Login = () => {
             Sign In
           </button>
           <p className="mt-6 text-sm text-center">
-            Don't have an account?{" "}
-            <Link to="/register" className="text-blue-500">
-              Register here
+            Already have an account?{" "}
+            <Link to="/login" className="text-blue-500">
+              Login here
             </Link>
           </p>
         </form>
@@ -60,8 +71,8 @@ const Login = () => {
       <div className="hidden w-3/4 bg-gray-800 md:block">
         <div className="flex flex-col items-center justify-center h-full">
           <img
-            src={login}
-            alt="Login to Account"
+            src={register}
+            alt="Register to Account"
             className="h-[755px] w-full object-cover"
           />
         </div>
@@ -70,4 +81,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
