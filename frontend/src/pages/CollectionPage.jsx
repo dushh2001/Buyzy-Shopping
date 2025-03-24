@@ -23,7 +23,10 @@ const CollectionPage = () => {
   useEffect(() => {
     //Add Event Listner for clicks
     document.addEventListener("mousedown", handleClickOutside);
-  });
+    return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -84,8 +87,9 @@ const CollectionPage = () => {
   return (
     <div className="flex flex-col lg:flex-row">
       {/* Mobile Filter Button */}
-      <button onClick={toggleSidebar} className="flex items-center justify-center p-2 border lg:hidden">
-        <FaFilter className="mr-2" />
+      <button onClick={toggleSidebar} className="flex items-center justify-center p-2 text-sm border lg:hidden">
+        <FaFilter  className="mr-2" values="Filters" />
+        Filters
       </button>
 
       {/* Filter Sidebar */}
