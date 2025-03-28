@@ -51,22 +51,22 @@ const Checkout = () => {
     <div className="grid gap-8 px-6 py-10 mx-auto tracking-tighter lg:grid-cols-2 max-w-7xl">
       {/* Left Section */}
       <div className="p-6 bg-white rounded-lg">
-        <h2 className="mb-6 text-2xl uppercase">Checkout</h2>
+        <h2 className="mb-6 text-2xl font-semibold uppercase">Checkout</h2>
         <form onSubmit={handleCreateCheckout}>
-          <h3 className="mb-4 text-lg">Contact Details</h3>
+          <h3 className="mb-4 text-lg font-medium">Contact Details</h3>
           <div className="mb-4">
-            <label className="block text-gray-700">Email</label>
+            <label className="block font-medium text-gray-700">Email</label>
             <input
               type="email"
               value="user@example.com"
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-black"
               disabled
             />
           </div>
-          <h3 className="mb-4 text-lg">Delivery</h3>
+          <h3 className="mb-4 text-lg font-medium">Delivery</h3>
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="block text-gray-700">First Name</label>
+              <label className="block font-medium text-gray-700">First Name</label>
               <input
                 type="text"
                 value={ShippingAdress.firstName}
@@ -76,12 +76,12 @@ const Checkout = () => {
                     firstName: e.target.value,
                   })
                 }
-                className="w-full p-2 border rounded"
+                className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-black"
                 required
               />
             </div>
             <div>
-              <label className="block text-gray-700">Last Name</label>
+              <label className="block font-medium text-gray-700">Last Name</label>
               <input
                 type="text"
                 value={ShippingAdress.lastName}
@@ -91,13 +91,13 @@ const Checkout = () => {
                     lastName: e.target.value,
                   })
                 }
-                className="w-full p-2 border rounded"
+                className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-black"
                 required
               />
             </div>
           </div>
           <div className="mb-4">
-            <lable className="block text-gray-700">Address</lable>
+            <label className="block font-medium text-gray-700">Address</label>
             <input
               type="text"
               value={ShippingAdress.address}
@@ -107,13 +107,13 @@ const Checkout = () => {
                   address: e.target.value,
                 })
               }
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-black"
               required
             />
           </div>
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="block text-gray-700">City</label>
+              <label className="block font-medium text-gray-700">City</label>
               <input
                 type="text"
                 value={ShippingAdress.city}
@@ -123,12 +123,12 @@ const Checkout = () => {
                     city: e.target.value,
                   })
                 }
-                className="w-full p-2 border rounded"
+                className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-black"
                 required
               />
             </div>
             <div>
-              <label className="block text-gray-700">Postal Code</label>
+              <label className="block font-medium text-gray-700">Postal Code</label>
               <input
                 type="text"
                 value={ShippingAdress.postalCode}
@@ -138,13 +138,13 @@ const Checkout = () => {
                     postalCode: e.target.value,
                   })
                 }
-                className="w-full p-2 border rounded"
+                className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-black"
                 required
               />
             </div>
           </div>
           <div className="mb-4">
-            <lable className="block text-gray-700">Country</lable>
+            <label className="block font-medium text-gray-700">Country</label>
             <input
               type="text"
               value={ShippingAdress.country}
@@ -154,12 +154,12 @@ const Checkout = () => {
                   country: e.target.value,
                 })
               }
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-black"
               required
             />
           </div>
           <div className="mb-4">
-            <lable className="block text-gray-700">Phone</lable>
+            <label className="block font-medium text-gray-700">Phone</label>
             <input
               type="tel"
               value={ShippingAdress.phone}
@@ -169,7 +169,7 @@ const Checkout = () => {
                   phone: e.target.value,
                 })
               }
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-black"
               required
             />
           </div>
@@ -177,22 +177,58 @@ const Checkout = () => {
             {!checkoutID ? (
               <button
                 type="submit"
-                className="w-full py-3 text-white bg-black rounded"
+                className="w-full py-3 text-white transition bg-black rounded hover:bg-gray-800"
               >
                 Continue to Payment
               </button>
             ) : (
               <div>
-                <h3 className="mb-4 text-lg">Pay with Paypal</h3>
+                <h3 className="mb-4 text-lg font-medium">Pay with PayPal</h3>
                 <PayPalButton
-                  amount={100}
+                  amount={cart.total}
                   onSuccess={handlePaymentSuccess}
-                  onError={(err) => alert("Payment failed. Try again.")}
+                  onError={(err) => alert("Payment failed. Please try again.")}
                 />
               </div>
             )}
           </div>
         </form>
+      </div>
+
+      {/* Right Section */}
+      <div className="p-6 rounded-lg shadow-md bg-gray-50">
+        <h3 className="mb-4 text-lg font-medium">Order Summary</h3>
+        <div className="py-4 mb-4 border-t">
+          {cart.products.map((product, index) => (
+            <div key={index} className="flex items-center justify-between mb-4">
+              <div className="flex items-start">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="object-cover w-20 h-24 mr-4 rounded"
+                />
+                <div>
+                  <h3 className="font-semibold text-md">{product.name}</h3>
+                  <p className="text-gray-500">Size: {product.size}</p>
+                  <p className="text-gray-500">Color: {product.color}</p>
+                </div>
+              </div>
+              <p className="text-xl font-medium">${product.price?.toLocaleString()}</p>
+            </div>
+          ))}
+        </div>
+        <div className="flex items-center justify-between mb-4 text-lg border-t">
+          <p className="text-lg font-medium">Subtotal</p>
+          <p className="text-xl font-semibold">${cart.total?.toLocaleString()}</p>
+        </div>
+        <div className="flex items-center justify-between text-lg">
+          <p>Shipping</p>
+          <p>Free</p>
+        </div>
+        <div className="flex items-center justify-between pt-4 mt-4 text-lg border-t">
+          <p className="font-semibold">Total</p>
+          <p className="text-xl font-semibold">${cart.total?.toLocaleString()}</p>
+        </div>
       </div>
     </div>
   );
