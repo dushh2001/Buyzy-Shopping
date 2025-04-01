@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const MyOrdersPage = () => {
   const [orders, setOrders] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     //simulate fetching orders
@@ -39,6 +41,10 @@ const MyOrdersPage = () => {
     }, 1000);
   }, []);
 
+  const handleRowClick = (orderId) => {
+    navigate(`/order/${orderId}`);
+  };
+
   return (
     <div className="p-4 mx-auto max-w-7xl sm:p-6">
       <h2 className="mb-6 text-xl font-bold sm:text-2xl">My Orders</h2>
@@ -60,6 +66,7 @@ const MyOrdersPage = () => {
               orders.map((order) => (
                 <tr
                   key={order._id}
+                  onClick={() => handleRowClick(order._id)}
                   className="border-b border-gray-100 hover:bg-gray-50"
                 >
                   <td className="px-2 py-2 sm:py-2 sm:px-2">
@@ -87,7 +94,13 @@ const MyOrdersPage = () => {
                     ${order.totalPrice}
                   </td>
                   <td className="px-4 py-4 text-gray-900 sm:py-2">
-                    <span className={`${order.isPaid ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"}`}>
+                    <span
+                      className={`${
+                        order.isPaid
+                          ? "bg-green-100 text-green-700"
+                          : "bg-red-100 text-red-700"
+                      }`}
+                    >
                       {order.isPaid ? "Paid" : "Not Paid"}
                     </span>
                   </td>
