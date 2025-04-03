@@ -11,7 +11,7 @@ const Profile = () => {
               Dushan Alwis
             </h1>
             <p className="mb-4 text-lg text-gray-600">kddalwis@gmail.com</p>
-            <button className="w-full px-4 py-2 text-white rounded bg-violet-950 hover:bg-red-700">
+            <button className="w-full px-4 py-2 text-white bg-black rounded hover:bg-red-700">
               Logout
             </button>
           </div>

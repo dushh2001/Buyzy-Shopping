@@ -19,7 +19,7 @@ const OrderManagement = () => {
       <h2 className="mb-6 text-2xl font-bold">Order Management</h2>
       <div className="overflow-x-auto shadow-md sm:rounded-lg">
         <table className="min-w-full text-left text-gray-500">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-300">
+          <thead className="text-xs text-white uppercase bg-black">
             <tr>
               <th className="px-4 py-3">Order ID</th>
               <th className="px-4 py-3">Customer</th>

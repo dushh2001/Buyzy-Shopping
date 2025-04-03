@@ -18,8 +18,8 @@ const Hero = () => {
             Explore our outfits with fast world wide shipping
           </p>
           <Link
-            to="#"
-            className="px-6 py-2 text-sm bg-white rounded-sm md:text-xl text-gray-950"
+            to="/collections/all"
+            className="px-6 py-2 text-sm transition duration-300 ease-in-out bg-white rounded-sm md:text-xl text-gray-950 hover:bg-black hover:text-white hover:border-white hover:border-2"
           >
             Shop Now
           </Link>

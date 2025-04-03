@@ -92,48 +92,46 @@ const OrderDetailsPage = () => {
             </div>
           </div>
           {/* Payment List */}
-          <div className="overfloe-x-auto">
-            <h4 className="mb-4 text-lg font-semibold">Products</h4>
-            <table className="min-w-full mb-4 text-gray-600">
-              <thead className="bg-gray-100">
-                <tr>
-                  <th className="px-4 py-2">Name</th>
-                  <th className="px-4 py-2">Unit Price</th>
-                  <th className="px-4 py-2">Quantity</th>
-                  <th className="px-4 py-2">Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                {orderDetails.orderItems.map((item) => (
-                  <tr
-                    key={item.productId}
-                    className="border-b hover:bg-gray-50"
-                  >
-                    <td className="flex items-center px-4 py-2">
-                      <div className="flex items-center">
-                        <img
-                          src={item.image}
-                          alt={item.name}
-                          className="w-12 h-12 mr-4 rounded-lg objct-cover"
-                        />
-                        <Link
-                          to={`/product/${item.productId}`}
-                          className="text-blue-600 hover:underline"
-                        >
-                          {item.name}
-                        </Link>
-                      </div>
-                    </td>
-                    <td className="px-4 py-2">${item.price.toFixed(2)}</td>
-                    <td className="px-4 py-2">{item.quantity}</td>
-                    <td className="px-4 py-2">
-                      ${(item.price * item.quantity).toFixed(2)}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <div className="overflow-x-auto">
+  <h4 className="mb-4 text-lg font-semibold">Products</h4>
+  <table className="min-w-full mb-4 text-gray-600">
+    <thead className="bg-gray-100">
+      <tr>
+        <th className="px-4 py-2">Name</th>
+        <th className="px-4 py-2">Unit Price</th>
+        <th className="px-4 py-2">Quantity</th>
+        <th className="px-4 py-2">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {orderDetails.orderItems.map((item) => (
+        <tr key={item.productId} className="border-b hover:bg-gray-50">
+          <td className="flex items-center px-4 py-2">
+            <div className="flex items-center">
+              <img
+                src={item.image}
+                alt={item.name}
+                className="object-cover w-12 h-12 mr-4 rounded-lg"
+              />
+              <Link
+                to={`/product/${item.productId}`}
+                className="text-blue-600 hover:underline"
+              >
+                {item.name}
+              </Link>
+            </div>
+          </td>
+          <td className="px-4 py-2 text-center">${item.price.toFixed(2)}</td>
+          <td className="px-4 py-2 text-center">{item.quantity}</td>
+          <td className="px-4 py-2 text-center">
+            ${(item.price * item.quantity).toFixed(2)}
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
 
           {/* Back to Orders Link */}
           <Link to={"/my-orders"} className="text-green-600 hover:underline">

@@ -56,7 +56,7 @@ const AdminSidebar = () => {
           <span>Orders</span>
         </NavLink>
         <NavLink
-          to="/admin/shop"
+          to="/"
           className={({ isActive }) =>
             isActive
               ? "bg-gray-700 text-white py-3 px-4 rounded flex items-center space-x-2"
@@ -77,10 +77,7 @@ const AdminSidebar = () => {
         </button>
       </div>
 
-      <div className="text-sm text-center text-gray-500 mt-96">
-        &copy; {new Date().getFullYear()} Buyzy. All rights reserved.
-        <br />
-      </div>
+     
     </div>
   );
 };
