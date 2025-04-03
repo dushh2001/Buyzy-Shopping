@@ -48,11 +48,11 @@ const UserManagement = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-4">User Management</h2>
+    <div className="p-6 mx-auto max-w-7xl">
+      <h2 className="mb-4 text-2xl font-bold">User Management</h2>
       {/* Add  New User Form */}
-      <div className="p-6 rounded-lg mb-6">
-        <h3 className="text-lg font-bold mb-4">Add New User</h3>
+      <div className="p-6 mb-6 rounded-lg">
+        <h3 className="mb-4 text-lg font-bold">Add New User</h3>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-gray-700">Name</label>
@@ -98,7 +98,7 @@ const UserManagement = () => {
           </div>
           <button
             type="submit"
-            className="bg-green-700 text-white py-2 px-4 rounded hover:bg-green-600"
+            className="px-4 py-2 text-white bg-green-700 rounded hover:bg-green-600"
           >
             Add User
           </button>
@@ -108,12 +108,12 @@ const UserManagement = () => {
       {/* User List */}
       <div className="overflow-x-auto shadow-md sm:rounded-lg">
         <table className="min-w-full text-left text-gray-500">
-          <thead className="bg-gray-300 text-xs uppercases text-gray-700">
+          <thead className="text-xs text-white bg-black uppercases">
             <tr>
-              <th className="py-3 px-4">Name</th>
-              <th className="py-3 px-4">Email</th>
-              <th className="py-3 px-4">Role</th>
-              <th className="py-3 px-4">Actions</th>
+              <th className="px-4 py-3">Name</th>
+              <th className="px-4 py-3">Email</th>
+              <th className="px-4 py-3">Role</th>
+              <th className="px-4 py-3">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -136,7 +136,7 @@ const UserManagement = () => {
                 <td className="p-4">
                   <button
                     onClick={() => handleDeleteUser(user._id)}
-                    className="bg-red-700 text-white py-1 px-2 rounded hover:bg-red-600"
+                    className="px-2 py-1 text-white bg-red-700 rounded hover:bg-red-600"
                   >
                     Delete
                   </button>

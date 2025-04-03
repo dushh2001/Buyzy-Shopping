@@ -12,7 +12,7 @@ const AdminLayout = () => {
   return (
     <div className="relative flex flex-col min-h-screen bg-gray-100 md:flex-row">
       {/* Mobile Toggle Button */}
-      <div className="z-20 flex p-4 text-white bg-blue-900 md:hidden">
+      <div className="z-20 flex p-4 text-white bg-black md:hidden">
         <button onClick={toggleSidebar}>
           <FaBars size={24} />
         </button>
@@ -37,7 +37,7 @@ const AdminLayout = () => {
       </div>
 
         {/* Main Content Area */}
-        <div className="flex-grow p-6 overflow-auto">
+        <div className="flex-grow p-6 overflow-auto bg-neutral-200">
             <Outlet />
         </div>
     </div>
