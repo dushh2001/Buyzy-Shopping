@@ -40,7 +40,7 @@ const AdminHomePage = () => {
         <h2 className="text-2xl font-bold mb-4">Recent Orders</h2>
         <div className="overflow-x-auto">
             <table className="min-w-full text-left text-gray-500">
-                <thead className="bg-gray-200 text-xs uppercase text-gray-700">
+                <thead className="bg-gray-300 text-xs uppercase text-gray-700">
                     <tr>
                         <th className="py-3 px-4">Order ID</th>
                         <th className="py-3 px-4">User</th>

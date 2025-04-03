@@ -108,7 +108,7 @@ const UserManagement = () => {
       {/* User List */}
       <div className="overflow-x-auto shadow-md sm:rounded-lg">
         <table className="min-w-full text-left text-gray-500">
-          <thead className="bg-gray-200 text-xs uppercases text-gray-700">
+          <thead className="bg-gray-300 text-xs uppercases text-gray-700">
             <tr>
               <th className="py-3 px-4">Name</th>
               <th className="py-3 px-4">Email</th>
